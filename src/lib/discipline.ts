@@ -116,7 +116,7 @@ export const QUOTES = [
 export function quoteOfDay(dateStr: string) {
   let hash = 0;
   for (let i = 0; i < dateStr.length; i++) hash = (hash * 31 + dateStr.charCodeAt(i)) % 100000;
-  return QUOTES[hash % QUOTES.length];
+  return QUOTES[hash % QUOTES.length] as string;
 }
 
 export function pad2(n: number) {
@@ -150,15 +150,20 @@ export function isWeekendDate(dateStr: string) {
   return dow === 0 || dow === 6;
 }
 
+function parseHm(hhmm: string): [number, number] {
+  const parts = (hhmm || "00:00").split(":");
+  return [Number(parts[0] ?? 0), Number(parts[1] ?? 0)];
+}
+
 export function fmtTime(hhmm: string) {
-  const [h, m] = hhmm.split(":").map(Number);
+  const [h, m] = parseHm(hhmm);
   const period = h >= 12 ? "PM" : "AM";
   const h12 = h % 12 === 0 ? 12 : h % 12;
   return `${h12}:${pad2(m)} ${period}`;
 }
 
 export function timeToMinutes(hhmm: string) {
-  const [h, m] = hhmm.split(":").map(Number);
+  const [h, m] = parseHm(hhmm);
   return h * 60 + m;
 }
 
