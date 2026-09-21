@@ -14,13 +14,175 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      courses: {
+        Row: {
+          created_at: string
+          done: number
+          id: string
+          name: string
+          total: number
+          unit: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          done?: number
+          id?: string
+          name: string
+          total?: number
+          unit?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          done?: number
+          id?: string
+          name?: string
+          total?: number
+          unit?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      daily_logs: {
+        Row: {
+          checked: Json
+          done_count: number
+          id: string
+          log_date: string
+          na: Json
+          notes: string
+          paused: boolean
+          task_ids: Json
+          total_count: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          checked?: Json
+          done_count?: number
+          id?: string
+          log_date: string
+          na?: Json
+          notes?: string
+          paused?: boolean
+          task_ids?: Json
+          total_count?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          checked?: Json
+          done_count?: number
+          id?: string
+          log_date?: string
+          na?: Json
+          notes?: string
+          paused?: boolean
+          task_ids?: Json
+          total_count?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          created_at: string
+          days: string
+          id: string
+          phase: string
+          prayer: string | null
+          sort_order: number
+          task: string
+          time: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          days?: string
+          id?: string
+          phase: string
+          prayer?: string | null
+          sort_order?: number
+          task: string
+          time: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          days?: string
+          id?: string
+          phase?: string
+          prayer?: string | null
+          sort_order?: number
+          task?: string
+          time?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_settings: {
+        Row: {
+          badges: Json
+          best_streak: number
+          created_at: string
+          display_name: string
+          last_completed_date: string | null
+          new_badge: number | null
+          prayer_times: Json
+          seeded: boolean
+          share_enabled: boolean
+          share_slug: string | null
+          streak: number
+          theme: string
+          user_id: string
+        }
+        Insert: {
+          badges?: Json
+          best_streak?: number
+          created_at?: string
+          display_name?: string
+          last_completed_date?: string | null
+          new_badge?: number | null
+          prayer_times?: Json
+          seeded?: boolean
+          share_enabled?: boolean
+          share_slug?: string | null
+          streak?: number
+          theme?: string
+          user_id: string
+        }
+        Update: {
+          badges?: Json
+          best_streak?: number
+          created_at?: string
+          display_name?: string
+          last_completed_date?: string | null
+          new_badge?: number | null
+          prayer_times?: Json
+          seeded?: boolean
+          share_enabled?: boolean
+          share_slug?: string | null
+          streak?: number
+          theme?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_shared_streak: {
+        Args: { _slug: string }
+        Returns: {
+          best_streak: number
+          display_name: string
+          streak: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
