@@ -7,8 +7,8 @@ type Mode = "signin" | "signup";
 
 export const Route = createFileRoute("/auth")({
   ssr: false,
-  validateSearch: (search: Record<string, unknown>): { mode?: Mode } => ({
-    mode: search["mode"] === "signup" ? "signup" : search["mode"] === "signin" ? "signin" : undefined,
+  validateSearch: (search: Record<string, unknown>): { mode: Mode } => ({
+    mode: search["mode"] === "signup" ? "signup" : "signin",
   }),
   head: () => ({
     meta: [
