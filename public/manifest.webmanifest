@@ -1,0 +1,10 @@
+{
+  "name": "Daily Discipline",
+  "short_name": "Discipline",
+  "description": "A calm daily checklist and long-term habit tracker.",
+  "start_url": "/today",
+  "display": "standalone",
+  "background_color": "#12202B",
+  "theme_color": "#12202B",
+  "icons": [{ "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }]
+}
