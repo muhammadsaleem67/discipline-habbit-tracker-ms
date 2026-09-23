@@ -52,7 +52,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             className="hover:text-gold"
             onClick={async () => {
               await signOut();
-              navigate({ to: "/auth", replace: true });
+              navigate({ to: "/auth", search: { mode: "signin" }, replace: true });
             }}
           >
             Sign out
